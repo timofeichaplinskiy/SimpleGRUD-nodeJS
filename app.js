@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb://patrickisidoro:nuzor1539@ds133279.mlab.com:33279/crud-nodejs";
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -12,7 +13,7 @@ MongoClient.connect(uri, (err, client) => {
   if (err) return console.log(err);
   db = client.db('crud-nodejs');
 
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log('Server running on port 3000')
   })
 });
